@@ -1,8 +1,5 @@
 // Dependencies
 const express = require('express');
-const mongoose = require('mongoose');
-require('dotenv').config({ path: './config/.env' })
-
 
 const app = express();
 const port = 3000;
