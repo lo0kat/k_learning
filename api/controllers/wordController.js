@@ -1,6 +1,6 @@
 
 // Handle req and response here
-const Word = require("../models/wordModel");
+const Word = require("../models/wordModel").default;
 
 export function listAllWords(req,res){
     Word.find({},(err,word)=>{
