@@ -1,9 +1,9 @@
 
 // Handle req and response here
-import Word, { find, findOneAndUpdate, deleteOne, findById } from '../models/wordModel';
+const Word = require("../models/wordModel");
 
 export function listAllWords(req,res){
-    find({},(err,word)=>{
+    Word.find({},(err,word)=>{
         if (err){
             res.status(500).send(err);
         }
@@ -31,7 +31,7 @@ export function createNewWord(req,res){
 };
 
 export function updateWord(req,res){
-    findOneAndUpdate({_id : req.params.wordId},req.body,{new:true},(err,word)=>{
+    Word.findOneAndUpdate({_id : req.params.wordId},req.body,{new:true},(err,word)=>{
         if (err){
             res.status(500).send(err);
         }
@@ -42,7 +42,7 @@ export function updateWord(req,res){
 };
 
 export function deleteWord(req,res){
-    deleteOne({_id : req.params.wordId},(err)=>{
+    Word.deleteOne({_id : req.params.wordId},(err)=>{
         if (err){
             res.status(404).send(err);
         }
@@ -53,7 +53,7 @@ export function deleteWord(req,res){
 };
 
 export function findWord(req,res){
-    findById({_id : req.params.wordId},(err,word)=>{
+    Word.findById({_id : req.params.wordId},(err,word)=>{
         if (err){
             res.status(500).send(err);
         }
